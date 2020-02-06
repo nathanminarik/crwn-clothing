@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // Get styles and data
 import './directory.styles.scss';
-import { sections } from './directory.data';
+import { SECTIONS } from '../../mock-data';
 
 // Get components
 import { MenuItem } from './../menu-item/menu-item.component';
@@ -11,7 +11,7 @@ export class Directory extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sections
+            sections: SECTIONS
         }
     }
 
