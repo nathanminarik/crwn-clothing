@@ -21,11 +21,21 @@ export class Directory extends Component {
                 {
                     this.state.sections.map(({
                         id,
-                        imageUrl,
-                        size,
-                        title
+                        ...otherSectionProps
                     }) => (
-                        <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+                        <MenuItem
+                            key={id}
+                            {...otherSectionProps}
+                        />
+                        // We could keep adding props but it's getting redundant
+                        // So instead we'll spread the ...rest
+                        // <MenuItem
+                        //     key={id}
+                        //     title={title}
+                        //     imageUrl={imageUrl}
+                        //     linkUrl={linkUrl}
+                        //     size={size} 
+                        // />
                     ))
                 }
             </div>
