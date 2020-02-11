@@ -6,3 +6,4 @@ export { FormInput } from './form-input';
 export { Header } from './header';
 export { MenuItem } from './menu-item';
 export { SignIn } from './sign-in';
+export { SignUp } from './sign-up';
