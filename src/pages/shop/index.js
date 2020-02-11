@@ -1,1 +1,1 @@
-export { ShopPage } from './shop.component';
+export { ShopPage } from './shop.page';
