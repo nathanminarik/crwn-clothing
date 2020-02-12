@@ -1,11 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { auth } from './../../firebase/firebase.utils';
 import { Logo } from './../../assets';
 
 import './header.styles.scss';
 
-export const Header = ({
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+});
+
+export const Header = connect(mapStateToProps)(({
     currentUser
 }) => (
     <div className="header">
@@ -20,4 +25,4 @@ export const Header = ({
                 : <Link to='/authenticate' className='option'>SIGN IN</Link>}
         </div>
     </div>
-)
+));
