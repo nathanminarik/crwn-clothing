@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
@@ -46,20 +46,27 @@ class AppWithoutHydration extends React.Component {
 			<div>
 				<Header />
 				<Switch>
-					<Route path='/' exact component={HomePage} />
+					<Route exact path='/' component={HomePage} />
 					<Route path='/shop' component={ShopPage} />
-					<Route path='/authenticate' component={AuthenticationPage} />
+					<Route
+						exact
+						path='/authenticate'
+						render={() => this.props.currentUser ? <Redirect to='/' /> : <AuthenticationPage />} />
 				</Switch>
 			</div>
 		)
 	}
 }
 
+const mapStateToProps = ({ user }) => ({
+	currentUser: user.currentUser
+})
+
 const mapDispatchToProps = dispatch => ({
 	setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 
 export const App = connect(
-	null,
+	mapStateToProps,
 	mapDispatchToProps
 )(AppWithoutHydration);
