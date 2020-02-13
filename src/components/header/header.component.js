@@ -5,13 +5,20 @@ import { auth } from './../../firebase/firebase.utils';
 import { Logo } from './../../assets';
 
 import './header.styles.scss';
+import { CartIcon } from './../cart-icon';
+import { CartDropdown } from './../cart-dropdown';
 
-const mapStateToProps = state => ({
-    currentUser: state.user.currentUser
+const mapStateToProps = ({
+    cart: { isHidden },
+    user: { currentUser }
+}) => ({
+    currentUser: currentUser,
+    isCartHidden: isHidden
 });
 
-export const Header = connect(mapStateToProps)(({
-    currentUser
+const HeaderNotConnected = ({
+    currentUser,
+    isCartHidden
 }) => (
     <div className="header">
         <Link to ='/' className='logo-container'>
@@ -23,6 +30,10 @@ export const Header = connect(mapStateToProps)(({
             {currentUser
                 ? <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
                 : <Link to='/authenticate' className='option'>SIGN IN</Link>}
+            <CartIcon />
         </div>
+        { isCartHidden ? null : <CartDropdown /> }
     </div>
-));
+)
+
+export const Header = connect(mapStateToProps)(HeaderNotConnected);

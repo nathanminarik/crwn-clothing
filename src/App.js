@@ -9,7 +9,7 @@ import { setCurrentUser } from './redux'
 import { AuthenticationPage, HomePage, ShopPage } from './pages';
 import { Header } from './components';
 
-class AppWithoutHydration extends React.Component {
+class AppNotConnected extends React.Component {
 
 	unsubscribeFromAuth = null;
 
@@ -69,4 +69,4 @@ const mapDispatchToProps = dispatch => ({
 export const App = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(AppWithoutHydration);
+)(AppNotConnected);
