@@ -2,5 +2,5 @@
 export { store } from './store';
 
 // ACTIONS
-export { toggleCartHidden } from './cart';
+export { addCartItem, toggleCartHidden } from './cart';
 export { setCurrentUser } from './user';
