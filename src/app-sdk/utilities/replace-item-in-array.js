@@ -1,5 +1,5 @@
-export const replaceItemInArray = (arr) => (item) => arr.map(arrItem => 
-    arrItem.id === item.id
+export const replaceItemInArray = (arr, { selectorKey }) => (item) => arr.map(arrItem => 
+    arrItem[selectorKey] === item[selectorKey]
         ? item
         : arrItem
 );

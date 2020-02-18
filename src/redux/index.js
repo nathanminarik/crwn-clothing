@@ -4,6 +4,8 @@ export { store } from './store';
 // ACTIONS
 export {
     addCartItem,
+    decreaseItemQty,
+    removeCartItemById,
     selectCartIsHidden,
     selectCartItems,
     selectCartItemsCount,

@@ -1,3 +1,15 @@
-export { addCartItem, toggleCartHidden } from './cart.actions';
-export { selectCartIsHidden, selectCartItems, selectCartItemsCount, selectCartTotal } from './cart.selectors';
-export { cartReducer } from './cart.reducer';
+export {
+    addCartItem,
+    decreaseItemQty,
+    removeCartItemById,
+    toggleCartHidden
+} from './cart.actions';
+export {
+    cartReducer
+} from './cart.reducer';
+export {
+    selectCartIsHidden,
+    selectCartItems,
+    selectCartItemsCount,
+    selectCartTotal
+} from './cart.selectors';

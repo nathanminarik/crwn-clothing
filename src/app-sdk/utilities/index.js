@@ -1,8 +1,10 @@
 export { addItemToArray } from './add-item-to-array';
 export { addKey } from './add-key';
+export { eitherOrPipe } from './either-or-pipe';
 export { getDuplicate } from './get-duplicate';
 export { incrementKey } from './increment-key';
-export { isDuplicate } from './is-duplicate';
 export { mergeObject } from './marge-object';
+export { objectExistsInArray } from './object-exists-in-array';
 export { pipe } from './pipe';
+export { removeObjectFromArray } from './remove-item-from-array';
 export { replaceItemInArray } from './replace-item-in-array';

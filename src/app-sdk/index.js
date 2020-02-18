@@ -1,10 +1,12 @@
 export {
     addItemToArray,
     addKey,
+    eitherOrPipe,
     getDuplicate,
     incrementKey,
-    isDuplicate,
     mergeObject,
+    objectExistsInArray,
     pipe,
+    removeObjectFromArray,
     replaceItemInArray
 } from './utilities';
