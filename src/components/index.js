@@ -1,3 +1,7 @@
+export { CartDropdown } from './cart-dropdown';
+export { CartIcon } from './cart-icon';
+export { CartItem } from './cart-item';
+export { CheckoutItem } from './checkout-item';
 export { CollectionItem } from './collection-item';
 export { CollectionPreview } from './collection-preview';
 export { CustomButton } from './custom-button';

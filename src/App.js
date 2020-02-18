@@ -1,13 +1,15 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
+import { auth, createUserProfileDocument } from './firebase/firebase.utils'
+import { selectCurrentUser, setCurrentUser } from './redux'
+
+import { AuthenticationPage, CheckoutPage, HomePage, ShopPage } from './pages';
+import { Header } from './components';
 
 import './App.scss';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils'
-import { setCurrentUser } from './redux'
-import { AuthenticationPage, HomePage, ShopPage } from './pages';
-import { Header } from './components';
 
 class AppNotConnected extends React.Component {
 
@@ -51,20 +53,22 @@ class AppNotConnected extends React.Component {
 					<Route
 						exact
 						path='/authenticate'
-						render={() => this.props.currentUser ? <Redirect to='/' /> : <AuthenticationPage />} />
+						render={() => this.props.currentUser ? <Redirect to='/' /> : <AuthenticationPage />}
+					/>
+					<Route exact path='/checkout' component={CheckoutPage} />
 				</Switch>
 			</div>
 		)
 	}
 }
 
-const mapStateToProps = ({ user }) => ({
-	currentUser: user.currentUser
-})
+const mapStateToProps = createStructuredSelector({
+	currentUser: selectCurrentUser
+});
 
 const mapDispatchToProps = dispatch => ({
 	setCurrentUser: user => dispatch(setCurrentUser(user))
-})
+});
 
 export const App = connect(
 	mapStateToProps,

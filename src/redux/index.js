@@ -4,8 +4,13 @@ export { store } from './store';
 // ACTIONS
 export {
     addCartItem,
+    selectCartIsHidden,
     selectCartItems,
     selectCartItemsCount,
+    selectCartTotal,
     toggleCartHidden
 } from './cart';
-export { setCurrentUser } from './user';
+export {
+    selectCurrentUser,
+    setCurrentUser
+} from './user';

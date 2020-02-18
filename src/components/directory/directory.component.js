@@ -1,11 +1,14 @@
+// Get packages
 import React, { Component } from 'react';
 
-// Get styles and data
-import './directory.styles.scss';
+// Get data
 import { SECTIONS } from '../../mock-data';
 
 // Get components
-import { MenuItem } from './../menu-item/menu-item.component';
+import { MenuItem } from './../menu-item';
+
+// Get styles
+import './directory.styles.scss';
 
 export class Directory extends Component {
     constructor(props) {
