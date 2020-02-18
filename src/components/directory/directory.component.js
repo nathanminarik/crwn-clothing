@@ -1,8 +1,9 @@
 // Get packages
 import React, { Component } from 'react';
-
-// Get data
-import { SECTIONS } from '../../mock-data';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+// Get state
+import { selectSections } from '../../redux';
 
 // Get components
 import { MenuItem } from './../menu-item';
@@ -10,38 +11,26 @@ import { MenuItem } from './../menu-item';
 // Get styles
 import './directory.styles.scss';
 
-export class Directory extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            sections: SECTIONS
+const DirectoryNotConnected = ({
+    directoryData
+}) => (
+    <div className='directory-menu'>
+        {
+            directoryData.map(({
+                id,
+                ...otherSectionProps
+            }) => (
+                <MenuItem
+                    key={id}
+                    {...otherSectionProps}
+                />
+            ))
         }
-    }
+    </div>
+);
 
-    render () {
-        return (
-            <div className='directory-menu'>
-                {
-                    this.state.sections.map(({
-                        id,
-                        ...otherSectionProps
-                    }) => (
-                        <MenuItem
-                            key={id}
-                            {...otherSectionProps}
-                        />
-                        // We could keep adding props but it's getting redundant
-                        // So instead we'll spread the ...rest
-                        // <MenuItem
-                        //     key={id}
-                        //     title={title}
-                        //     imageUrl={imageUrl}
-                        //     linkUrl={linkUrl}
-                        //     size={size} 
-                        // />
-                    ))
-                }
-            </div>
-        )
-    }
-}
+const mapStateToProps = createStructuredSelector({
+    directoryData: selectSections
+})
+
+export const Directory = connect(mapStateToProps)(DirectoryNotConnected);

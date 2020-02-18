@@ -25,4 +25,4 @@ export const processRemoveCartItem = (arr, item, identifier = 'id') => eitherOrP
     objectExistsInArray(arr, { selectorKey: identifier })(item),
     [ removeObjectFromArray(arr, { selectorKey: identifier }) ],
     [ (item) => `Item ${item} Does Not Exist` ]
-)(item)
+)(item);

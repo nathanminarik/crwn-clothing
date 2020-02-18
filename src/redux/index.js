@@ -1,5 +1,8 @@
 // GLOBAL STORE
-export { store } from './store';
+export {
+    persistor,
+    store
+} from './store';
 
 // ACTIONS
 export {
@@ -12,6 +15,9 @@ export {
     selectCartTotal,
     toggleCartHidden
 } from './cart';
+export {
+    selectSections
+} from './directory';
 export {
     selectCurrentUser,
     setCurrentUser
