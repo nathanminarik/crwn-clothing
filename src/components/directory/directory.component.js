@@ -1,5 +1,5 @@
 // Get packages
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Get state
@@ -12,11 +12,11 @@ import { MenuItem } from './../menu-item';
 import './directory.styles.scss';
 
 const DirectoryNotConnected = ({
-    directoryData
+    sections
 }) => (
     <div className='directory-menu'>
         {
-            directoryData.map(({
+            sections.map(({
                 id,
                 ...otherSectionProps
             }) => (
@@ -30,7 +30,7 @@ const DirectoryNotConnected = ({
 );
 
 const mapStateToProps = createStructuredSelector({
-    directoryData: selectSections
+    sections: selectSections
 })
 
 export const Directory = connect(mapStateToProps)(DirectoryNotConnected);
