@@ -22,10 +22,10 @@ export const selectCollections = createSelector(
 
 export const selectCollectionsAsArray = createSelector(
     [selectCollections],
-    collections => Object.values(collections)
+    collections => collections ? Object.values(collections) : []
 );
 
 export const selectCollection = (collectionKey) => createSelector(
     [selectCollections],
-    collections => collections[collectionKey]
+    collections => collections ? collections[collectionKey]: null
 );

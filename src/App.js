@@ -20,7 +20,8 @@ class AppNotConnected extends React.Component {
 			setCurrentUser
 		} = this.props;
 
-		// The following is firebase specific
+		// The following is firebase specific and uses their observer pattern. It is the equivalent of using promises and redux-thunk
+
 		this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
 			if (userAuth) {
 				const userRef = await createUserProfileDocument(userAuth);
@@ -35,7 +36,6 @@ class AppNotConnected extends React.Component {
 			} else {
 				setCurrentUser(userAuth)
 			}
-
 		})
 	}
 
