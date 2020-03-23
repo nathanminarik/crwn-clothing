@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { selectCollection } from '../../redux';
 import { CollectionItem } from '../collection-item';
-import { WithSpinner } from '../with-spinner';
 
 import './collection.styles.scss';
 

@@ -1,1 +1,1 @@
-export { Collection } from './collection.component';
+export { CollectionContainer } from './collection.container';

@@ -29,3 +29,13 @@ export const selectCollection = (collectionKey) => createSelector(
     [selectCollections],
     collections => collections ? collections[collectionKey]: null
 );
+
+export const selectIsCollectionsFetching = createSelector(
+    [selectShop],
+    shop => shop.isFetching
+);
+
+export const selectIsCollectionsLoaded = createSelector(
+    [selectShop],
+    shop => Boolean(shop.collections)
+);

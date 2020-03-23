@@ -1,1 +1,1 @@
-export { CollectionsOverview } from './collections-overview.component';
+export { CollectionsOverviewContainer } from './collections-overview.container';
